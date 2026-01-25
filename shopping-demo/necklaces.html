@@ -22,8 +22,9 @@
 
     .logo {
       width: 42px;
-      height: 42px;
-      object-fit: contain;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 15px;
     }
 
     .header-fixed {
@@ -124,7 +125,78 @@
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
+
 }
+
+/* =========================
+   MOBILE FIXES (HEADER + FOOTER)
+   ========================= */
+@media (max-width: 768px) {
+
+  /* FIX HEADER OVERLAP */
+  .page-offset {
+    margin-top: 130px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* CENTER HEADER ITEMS BETTER */
+  .w3-bar-item {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  /* FOOTER FIX */
+  footer .w3-col {
+    text-align: center !important;
+    margin-bottom: 24px;
+  }
+
+  footer h4 {
+    margin-bottom: 12px;
+  }
+
+  footer .w3-xlarge i {
+    margin: 0 10px;
+  }
+
+}
+/* ================= MOBILE & TABLET FIXES ================= */
+    @media (max-width: 768px) {
+
+      .hero-title {
+        font-size: 38px;
+        letter-spacing: 3px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+        padding: 0 12px;
+      }
+
+      .w3-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .w3-bar-item {
+        float: none !important;
+      }
+
+      .w3-bar-item input {
+        width: 100% !important;
+        margin-bottom: 6px;
+      }
+    }
 
   </style>
 </head>
@@ -136,7 +208,7 @@
 <div class="w3-bar w3-black w3-padding w3-card header-fixed">
 
     <div class="w3-bar-item">
-       <a href="index.html"><img src="#" class="logo" alt="Logo"></a> 
+       <a href="index.html"><img src="img/logo.jpg" class="logo" alt="Logo"></a> 
     </div>
 
     <div class="w3-bar-item brand-name">
@@ -178,7 +250,7 @@
 
     <div class="w3-display-middle w3-center w3-padding-large">
 
-      <h1 class="hero-title">Necklaces</h1>
+      <h1 class="hero-title">Headphones</h1>
 
       <p class="hero-subtitle w3-text-dark-grey w3-large">
         Delicate drops, bold hoops, and timeless studs —
