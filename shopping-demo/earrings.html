@@ -22,8 +22,9 @@
 
     .logo {
       width: 42px;
-      height: 42px;
-      object-fit: contain;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 15px;
     }
 
     .header-fixed {
@@ -63,67 +64,134 @@
       margin: auto;
     }
 
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      padding: 24px 16px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    }
+
+    .product-image {
+      height: 260px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-details {
+      padding: 18px;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      color: #e75480;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .product-btn {
+      background: #e75480;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* ================= MOBILE & TABLET FIXES ================= */
+    @media (max-width: 768px) {
+
+      .hero-title {
+        font-size: 38px;
+        letter-spacing: 3px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+        padding: 0 12px;
+      }
+
+      .w3-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .w3-bar-item {
+        float: none !important;
+      }
+
+      .w3-bar-item input {
+        width: 100% !important;
+        margin-bottom: 6px;
+      }
+    }
     /* =========================
-   PRODUCT CARD CSS
+   MOBILE FIXES (HEADER + FOOTER)
    ========================= */
+@media (max-width: 768px) {
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 18px;
-  padding: 24px 0;
-}
+  /* FIX HEADER OVERLAP */
+  .page-offset {
+    margin-top: 130px;
+  }
 
-.product-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .brand-name {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
 
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
-}
+  .logo {
+    width: 34px;
+    height: 34px;
+  }
 
-.product-image {
-  height: 260px; /* fixed height */
-  width: 100%;
-  overflow: hidden;
-}
+  /* CENTER HEADER ITEMS BETTER */
+  .w3-bar-item {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
 
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* IMPORTANT */
-}
+  /* FOOTER FIX */
+  footer .w3-col {
+    text-align: center !important;
+    margin-bottom: 24px;
+  }
 
-.product-details {
-  padding: 18px;
-}
+  footer h4 {
+    margin-bottom: 12px;
+  }
 
-.product-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 8px;
-}
+  footer .w3-xlarge i {
+    margin: 0 10px;
+  }
 
-.product-price {
-  color: #e75480;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.product-btn {
-  background: #e75480;
-  color: #fff;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
 }
 
   </style>
@@ -135,14 +203,14 @@
 
 <div class="w3-bar w3-black w3-padding w3-card header-fixed">
 
-    <div class="w3-bar-item">
-       <a href="index.html"><img src="#" class="logo" alt="Logo"></a> 
-    </div>
+  <div class="w3-bar-item">
+    <a href="index.html"><img src="img/logo.jpg" class="logo" alt="Logo"></a>
+  </div>
 
-    <div class="w3-bar-item brand-name">
-       <a href="index.html">LUXORA</a>
-    </div>
-    
+  <div class="w3-bar-item brand-name">
+    <a href="index.html">LUXORA</a>
+  </div>
+
   <div class="w3-bar-item w3-hide-small">
     <input class="w3-input w3-border w3-round-large"
            style="width:220px; display:inline-block"
@@ -166,41 +234,31 @@
 
 </div>
 
-<!-- OFFSET -->
 <div class="page-offset"></div>
 
-<!-- ================= EARRINGS HERO ================= -->
+<!-- ================= HERO ================= -->
 
-<div class="category-hero"
-     style="background-image:url('img/earringbg.jpg')">
-
+<div class="category-hero" style="background-image:url('img/earringbg.jpg')">
   <div class="w3-display-container category-overlay">
-
     <div class="w3-display-middle w3-center w3-padding-large">
-
       <h1 class="hero-title">Earrings</h1>
-
       <p class="hero-subtitle w3-text-dark-grey w3-large">
         Delicate drops, bold hoops, and timeless studs —
         designed to sparkle with every expression.
       </p>
-
       <a href="#"
          class="w3-button w3-black w3-round-large w3-padding-large w3-margin-top">
         Explore Styles
       </a>
-
     </div>
-
   </div>
 </div>
 
-<div class="product-grid">
+<!-- ================= PRODUCTS ================= -->
 
+<div class="product-grid">
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring1.jpg" alt="Earring 1">
-    </div>
+    <div class="product-image"><img src="img/earring1.jpg"></div>
     <div class="product-details">
       <div class="product-title">Rose Gold Hoop</div>
       <div class="product-price">₹799</div>
@@ -209,9 +267,7 @@
   </div>
 
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring2.jpg" alt="Earring 2">
-    </div>
+    <div class="product-image"><img src="img/earring2.jpg"></div>
     <div class="product-details">
       <div class="product-title">Pearl Drop</div>
       <div class="product-price">₹999</div>
@@ -220,9 +276,7 @@
   </div>
 
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring3.jpg" alt="Earring 3">
-    </div>
+    <div class="product-image"><img src="img/earring3.jpg"></div>
     <div class="product-details">
       <div class="product-title">Diamond Stud</div>
       <div class="product-price">₹1499</div>
@@ -232,11 +286,8 @@
 </div>
 
 <div class="product-grid">
-
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring4.jpg" alt="Earring 1">
-    </div>
+    <div class="product-image"><img src="img/earring4.jpg"></div>
     <div class="product-details">
       <div class="product-title">Rose Gold Hoop</div>
       <div class="product-price">₹799</div>
@@ -245,9 +296,7 @@
   </div>
 
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring5.jpg" alt="Earring 2">
-    </div>
+    <div class="product-image"><img src="img/earring5.jpg"></div>
     <div class="product-details">
       <div class="product-title">Pearl Drop</div>
       <div class="product-price">₹999</div>
@@ -256,9 +305,7 @@
   </div>
 
   <div class="product-card">
-    <div class="product-image">
-      <img src="img/earring6.jpg" alt="Earring 3">
-    </div>
+    <div class="product-image"><img src="img/earring6.jpg"></div>
     <div class="product-details">
       <div class="product-title">Diamond Stud</div>
       <div class="product-price">₹1499</div>
@@ -266,13 +313,10 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- ================= FOOTER ================= -->
 
 <footer class="w3-container w3-black w3-padding-32">
-
   <div class="w3-row-padding w3-center">
 
     <div class="w3-col l4 m12 s12 w3-left-align">
@@ -287,27 +331,21 @@
 
     <div class="w3-col l4 m12 s12">
       <h4 class="w3-text-pink"><b>LUXORA</b></h4>
-      <p class="w3-small w3-text-grey">
-        © 2026 Luxora · All rights reserved
-      </p>
-      <p class="w3-small w3-text-grey">
-        A Luxora Brand
-      </p>
+      <p class="w3-small w3-text-grey">© 2026 Luxora · All rights reserved</p>
+      <p class="w3-small w3-text-grey">A Luxora Brand</p>
     </div>
 
     <div class="w3-col l4 m12 s12 w3-right-align">
       <h4 class="w3-text-pink"><b>Follow Us</b></h4>
-
       <div class="w3-xlarge">
-        <a href="https://www.instagram.com/"><i class="fab fa-instagram w3-text-pink w3-margin-right"></i></a>
-        <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp w3-text-pink w3-margin-right"></i></a>
-        <a href="https://www.facebook.com/"><i class="fab fa-facebook w3-text-pink w3-margin-right"></i></a>
-        <a href="https://www.youtube.com/"><i class="fab fa-youtube w3-text-pink"></i></a>
+        <i class="fab fa-instagram w3-text-pink w3-margin-right"></i>
+        <i class="fab fa-whatsapp w3-text-pink w3-margin-right"></i>
+        <i class="fab fa-facebook w3-text-pink w3-margin-right"></i>
+        <i class="fab fa-youtube w3-text-pink"></i>
       </div>
     </div>
 
   </div>
-
 </footer>
 
 </body>
